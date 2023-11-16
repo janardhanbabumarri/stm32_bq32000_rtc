@@ -1,0 +1,10 @@
+23:56:55 **** Incremental Build of configuration Debug for project BQ32000_Example ****
+make -j6 all 
+arm-none-eabi-size   BQ32000_Example.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9568	     20	   1660	  11248	   2bf0	BQ32000_Example.elf
+Finished building: default.size.stdout
+ 
+
+23:56:55 Build Finished. 0 errors, 0 warnings. (took 200ms)
+

@@ -20,9 +20,9 @@
 #define RTC_REG_SFR                     0x22
 
 typedef struct {
-    uint8_t seconds;
-    uint8_t minutes;
-    uint8_t hours;
+    uint8_t seconds; // 00-59 in BCD
+    uint8_t minutes; // 00-59 in BCD
+    uint8_t hours;   // 00-23 in BCD
     uint8_t dayOfWeek;
     uint8_t day;
     uint8_t month;

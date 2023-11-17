@@ -1,0 +1,116 @@
+00:39:24 **** Incremental Build of configuration Debug for project Temperature_Sensing ****
+make -j6 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/temperature_sensor.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/temperature_sensor.d" -MT"Core/Src/temperature_sensor.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/temperature_sensor.o"
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:132,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h:865:29: error: expected identifier before '(' token
+  865 | #define ADC1                ((ADC_TypeDef *)ADC1_BASE)
+      |                             ^
+../Core/Inc/temperature_sensor.h:9:3: note: in expansion of macro 'ADC1'
+    9 |   ADC1,
+      |   ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:99:34: error: too few arguments to function 'getTemperature'
+   99 |             float temperature1 = getTemperature(ADC_CHANNEL_10); // PC0
+      |                                  ^~~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:24:
+../Core/Inc/temperature_sensor.h:14:7: note: declared here
+   14 | float getTemperature(ADC_Instance adcInstance, uint32_t channel);
+      |       ^~~~~~~~~~~~~~
+../Core/Src/main.c:100:34: error: too few arguments to function 'getTemperature'
+  100 |             float temperature2 = getTemperature(ADC_CHANNEL_11); // PC1
+      |                                  ^~~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:24:
+../Core/Inc/temperature_sensor.h:14:7: note: declared here
+   14 | float getTemperature(ADC_Instance adcInstance, uint32_t channel);
+      |       ^~~~~~~~~~~~~~
+../Core/Src/main.c:101:34: error: too few arguments to function 'getTemperature'
+  101 |             float temperature3 = getTemperature(ADC_CHANNEL_12); // PC2
+      |                                  ^~~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:24:
+../Core/Inc/temperature_sensor.h:14:7: note: declared here
+   14 | float getTemperature(ADC_Instance adcInstance, uint32_t channel);
+      |       ^~~~~~~~~~~~~~
+../Core/Src/main.c:102:34: error: too few arguments to function 'getTemperature'
+  102 |             float temperature4 = getTemperature(ADC_CHANNEL_13); // PC3
+      |                                  ^~~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:24:
+../Core/Inc/temperature_sensor.h:14:7: note: declared here
+   14 | float getTemperature(ADC_Instance adcInstance, uint32_t channel);
+      |       ^~~~~~~~~~~~~~
+../Core/Src/main.c:103:34: error: too few arguments to function 'getTemperature'
+  103 |             float temperature5 = getTemperature(ADC_CHANNEL_1);  // PA1
+      |                                  ^~~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:24:
+../Core/Inc/temperature_sensor.h:14:7: note: declared here
+   14 | float getTemperature(ADC_Instance adcInstance, uint32_t channel);
+      |       ^~~~~~~~~~~~~~
+../Core/Src/main.c:103:19: warning: unused variable 'temperature5' [-Wunused-variable]
+  103 |             float temperature5 = getTemperature(ADC_CHANNEL_1);  // PA1
+      |                   ^~~~~~~~~~~~
+../Core/Src/main.c:102:19: warning: unused variable 'temperature4' [-Wunused-variable]
+  102 |             float temperature4 = getTemperature(ADC_CHANNEL_13); // PC3
+      |                   ^~~~~~~~~~~~
+../Core/Src/main.c:101:19: warning: unused variable 'temperature3' [-Wunused-variable]
+  101 |             float temperature3 = getTemperature(ADC_CHANNEL_12); // PC2
+      |                   ^~~~~~~~~~~~
+../Core/Src/main.c:100:19: warning: unused variable 'temperature2' [-Wunused-variable]
+  100 |             float temperature2 = getTemperature(ADC_CHANNEL_11); // PC1
+      |                   ^~~~~~~~~~~~
+../Core/Src/main.c:99:19: warning: unused variable 'temperature1' [-Wunused-variable]
+   99 |             float temperature1 = getTemperature(ADC_CHANNEL_10); // PC0
+      |                   ^~~~~~~~~~~~
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:132,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/temperature_sensor.h:5,
+                 from ../Core/Src/temperature_sensor.c:2:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h:865:29: error: expected identifier before '(' token
+  865 | #define ADC1                ((ADC_TypeDef *)ADC1_BASE)
+      |                             ^
+../Core/Inc/temperature_sensor.h:9:3: note: in expansion of macro 'ADC1'
+    9 |   ADC1,
+      |   ^~~~
+../Core/Src/temperature_sensor.c: In function 'getTemperature':
+../Core/Src/temperature_sensor.c:34:17: warning: implicit declaration of function 'log' [-Wimplicit-function-declaration]
+   34 |   float logR2 = log(R2);
+      |                 ^~~
+../Core/Src/temperature_sensor.c:3:1: note: include '<math.h>' or provide a declaration of 'log'
+    2 | #include "temperature_sensor.h"
+  +++ |+#include <math.h>
+    3 | 
+../Core/Src/temperature_sensor.c:34:17: warning: incompatible implicit declaration of built-in function 'log' [-Wbuiltin-declaration-mismatch]
+   34 |   float logR2 = log(R2);
+      |                 ^~~
+../Core/Src/temperature_sensor.c:34:17: note: include '<math.h>' or provide a declaration of 'log'
+../Core/Src/temperature_sensor.c: In function 'readADC':
+../Core/Src/temperature_sensor.c:46:19: warning: comparison between pointer and integer
+   46 |   if (adcInstance == ADC1) {
+      |                   ^~
+../Core/Src/temperature_sensor.c:49:28: error: 'ADC_SAMPLETIME_2CYCLES_5' undeclared (first use in this function); did you mean 'ADC_SAMPLETIME_2CYCLE_5'?
+   49 |     sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                            ADC_SAMPLETIME_2CYCLE_5
+../Core/Src/temperature_sensor.c:49:28: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/temperature_sensor.c:50:28: error: 'hadc1' undeclared (first use in this function); did you mean 'hadc2'?
+   50 |     HAL_ADC_ConfigChannel(&hadc1, &sConfig);
+      |                            ^~~~~
+      |                            hadc2
+../Core/Src/temperature_sensor.c:58:26: warning: comparison between pointer and integer
+   58 |   } else if (adcInstance == ADC2) {
+      |                          ^~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:37: Core/Src/temperature_sensor.o] Error 1
+"make -j6 all" terminated with exit code 2. Build might be incomplete.
+
+00:39:25 Build Failed. 12 errors, 9 warnings. (took 307ms)
+

@@ -1,0 +1,13 @@
+/*
+ * temperature_sensor.h
+ *
+ *  Created on: Nov 17, 2023
+ *      Author: janar
+ */
+
+#ifndef INC_TEMPERATURE_SENSOR_H_
+#define INC_TEMPERATURE_SENSOR_H_
+
+
+
+#endif /* INC_TEMPERATURE_SENSOR_H_ */

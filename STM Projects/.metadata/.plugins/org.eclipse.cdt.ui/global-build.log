@@ -1,7 +1,21 @@
-23:56:55 **** Incremental Build of configuration Debug for project BQ32000_Example ****
+08:54:52 **** Incremental Build of configuration Debug for project BQ32000_Example ****
 make -j6 all 
 arm-none-eabi-size   BQ32000_Example.elf 
    text	   data	    bss	    dec	    hex	filename
-   9568	     20	   1660	  11248	   2bf0	BQ32000_Example.elf
+  10004	     20	   1660	  11684	   2da4	BQ32000_Example.elf
+Finished building: default.size.stdout
+ 
+08:54:55 **** Incremental Build of configuration Debug for project BQ32000_Example ****
+make -j6 all 
+arm-none-eabi-size   BQ32000_Example.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10004	     20	   1660	  11684	   2da4	BQ32000_Example.elf
+Finished building: default.size.stdout
+ 
+08:55:06 **** Incremental Build of configuration Debug for project BQ32000_Example ****
+make -j6 all 
+arm-none-eabi-size   BQ32000_Example.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10004	     20	   1660	  11684	   2da4	BQ32000_Example.elf
 Finished building: default.size.stdout
  

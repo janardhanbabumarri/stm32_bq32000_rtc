@@ -1,0 +1,74 @@
+// temperature_sensor.c
+#include "temperature_sensor.h"
+
+// External declaration for the ADC handles
+extern ADC_HandleTypeDef hadc1;
+extern ADC_HandleTypeDef hadc2;
+
+// Private function prototypes
+static uint16_t readADC(ADC_Instance adcInstance, uint32_t channel);
+
+// Resistance of the fixed resistor (in ohms)
+#define R1 470000.0
+
+// Constants for temperature conversion
+#define C1 0.6277479580e-03
+#define C2 2.267518379e-04
+#define C3 0.7581309980e-07
+
+// Reference voltage (in volts)
+#define REFERENCE_VOLTAGE 4.975
+
+// Public functions
+float getTemperature(ADC_Instance adcInstance, uint32_t channel) {
+  // Convert ADC value to temperature using NTC characteristics
+  uint16_t adcValue = readADC(adcInstance, channel);
+
+  // Convert ADC value to voltage
+  float voltage = adcValue * (REFERENCE_VOLTAGE / 4095.0);
+
+  // Calculate resistance of the NTC (R2)
+  float R2 = (voltage / REFERENCE_VOLTAGE) * (R1 / (1 - (voltage / REFERENCE_VOLTAGE)));
+
+  // Calculate temperature using Steinhart-Hart equation
+  float logR2 = log(R2);
+  float T = 1.0 / (C1 + C2 * logR2 + C3 * logR2 * logR2 * logR2);
+  T -= 273.15;
+
+  return T;
+}
+
+// Private functions
+static uint16_t readADC(ADC_Instance adcInstance, uint32_t channel) {
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  // Configure the selected ADC channel
+  if (adcInstance == ADC1) {
+    sConfig.Channel = channel;
+    sConfig.Rank = 1;
+    sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+    HAL_ADC_ConfigChannel(&hadc1, &sConfig);
+
+    // Start ADC conversion and wait for it to complete
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+
+    // Read ADC value
+    return HAL_ADC_GetValue(&hadc1);
+  } else if (adcInstance == ADC2) {
+    sConfig.Channel = channel;
+    sConfig.Rank = 1;
+    sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+    HAL_ADC_ConfigChannel(&hadc2, &sConfig);
+
+    // Start ADC conversion and wait for it to complete
+    HAL_ADC_Start(&hadc2);
+    HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
+
+    // Read ADC value
+    return HAL_ADC_GetValue(&hadc2);
+  } else {
+    // Handle error or provide default value
+    return 0;
+  }
+}

@@ -2,4 +2,4 @@
 ../Core/Src/rtc_bq32000.c:9:19:RTC_BQ32000_ReadRegister	40	static
 ../Core/Src/rtc_bq32000.c:13:19:RTC_BQ32000_WriteRegister	32	static
 ../Core/Src/rtc_bq32000.c:17:19:RTC_BQ32000_ReadTime	40	static
-../Core/Src/rtc_bq32000.c:38:19:RTC_BQ32000_SetTime	40	static
+../Core/Src/rtc_bq32000.c:37:19:RTC_BQ32000_SetTime	40	static

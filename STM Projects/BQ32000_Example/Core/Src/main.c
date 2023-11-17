@@ -89,7 +89,9 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
-  RTC_Time setTime = {56, 34, 12, 1, 20, 11, 23};
+  // Set the RTC time (example time: 12:34:56, Monday, 20th November 2023)
+  //setTime = {Seconds, Minutes, Hour, week, date, month, year}
+     RTC_Time setTime = {00, 54, 8, 5, 17, 11, 23};
    HAL_StatusTypeDef statusSet = RTC_BQ32000_SetTime(&hi2c2, &setTime);
 
 //   if (statusSet == HAL_OK) {
